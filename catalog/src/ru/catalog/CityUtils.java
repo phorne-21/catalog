@@ -2,11 +2,21 @@ package ru.catalog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class CityUtils {
+public class CityUtils{
+    // comparator or lambda
+    public static List<City> sortByName(List<City> cities) {
+        Comparator<City> comparator = Comparator.comparing(City::getName);
+        cities.sort(comparator);
+        return cities;
+    }
+
+    public static List<City> sortByDistrictAndName(List<City> cities) {
+        Comparator<City> comparator = Comparator.comparing(City::getDistrict);
+        cities.sort(comparator.thenComparing(City::getName));
+        return cities;
+    }
     public static List<City> parse() {
         List<City> cities = new ArrayList<>();
         try {

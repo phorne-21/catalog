@@ -1,6 +1,5 @@
 package ru.catalog;
 
-import java.util.Date;
 
 public class City {
     private String name;
@@ -9,8 +8,6 @@ public class City {
     private int population;
     private String foundation;
 
-    public City() {
-    }
     public City(String name, String region, String district, int population, String foundation) {
         this.name = name;
         this.region = region;
@@ -28,5 +25,35 @@ public class City {
                 ", population=" + population +
                 ", foundation='" + foundation + '\'' +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public String getRegion() {
+        return region;
+    }
+
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public int getPopulation() {
+        return population;
+    }
+
+    public void setPopulation(int population) {
+        this.population = population;
+    }
+
+    public String getFoundation() {
+        return foundation;
+    }
+
+    public void setFoundation(String foundation) {
+        this.foundation = foundation;
     }
 }
