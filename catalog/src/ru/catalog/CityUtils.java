@@ -6,6 +6,20 @@ import java.text.MessageFormat;
 import java.util.*;
 
 public class CityUtils{
+    public static void findCitiesInRegions(List<City> cities) {
+        Map<String, Integer> region = new HashMap<>();
+        City[] arr = cities.toArray(new City[0]);
+        int num = 0;
+        for (int i = 0; i < arr.length-1; i++) {
+            if (arr[i].getRegion().equals(arr[i+1].getRegion())) {
+                num++;
+            } else {
+                region.put(arr[i].getRegion(), num + 1);
+                num = 0;
+            }
+        }
+        region.forEach((key, value) -> System.out.println(key + " - " + value));
+    }
 
     public static void findCityWithMaxPopulation(List<City> cities) {
         City[] array = cities.toArray(new City[0]);
