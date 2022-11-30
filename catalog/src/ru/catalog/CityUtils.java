@@ -6,16 +6,18 @@ import java.util.*;
 
 public class CityUtils{
     // comparator or lambda
-    public static List<City> sortByName(List<City> cities) {
-        Comparator<City> comparator = Comparator.comparing(City::getName);
-        cities.sort(comparator);
-        return cities;
+    public static void sortByName(List<City> cities) {
+        cities.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
+//        cities.sort(new Comparator<City>() {
+//            @Override
+//            public int compare(City o1, City o2) {
+//                return o1.getName().compareToIgnoreCase(o2.getName());
+//            }
+//        });
     }
 
-    public static List<City> sortByDistrictAndName(List<City> cities) {
-        Comparator<City> comparator = Comparator.comparing(City::getDistrict);
-        cities.sort(comparator.thenComparing(City::getName));
-        return cities;
+    public static void sortByDistrictAndName(List<City> cities) {
+        cities.sort(Comparator.comparing(City::getDistrict).thenComparing(City::getName));
     }
     public static List<City> parse() {
         List<City> cities = new ArrayList<>();
@@ -29,10 +31,6 @@ public class CityUtils{
             e.printStackTrace();
         }
         return cities;
-    }
-
-    public static void print(List<City> cities) {
-        cities.forEach(System.out::println);
     }
 
     public static City parse (String line) {
@@ -50,5 +48,9 @@ public class CityUtils{
         scanner.close();
 
         return new City(name, region, district, population, foundation);
+    }
+
+    public static void print(List<City> cities) {
+        cities.forEach(System.out::println);
     }
 }

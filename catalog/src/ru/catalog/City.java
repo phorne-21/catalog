@@ -31,29 +31,11 @@ public class City {
         return name;
     }
 
-
-    public String getRegion() {
-        return region;
-    }
-
-
     public String getDistrict() {
         return district;
     }
 
     public int getPopulation() {
         return population;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
-    }
-
-    public String getFoundation() {
-        return foundation;
-    }
-
-    public void setFoundation(String foundation) {
-        this.foundation = foundation;
     }
 }
