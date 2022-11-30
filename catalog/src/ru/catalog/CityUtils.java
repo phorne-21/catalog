@@ -2,11 +2,12 @@ package ru.catalog;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.text.MessageFormat;
 import java.util.*;
 
 public class CityUtils{
 
-    public static String findCityWithMaxPopulation(List<City> cities) {
+    public static void findCityWithMaxPopulation(List<City> cities) {
         City[] array = cities.toArray(new City[0]);
         City max = array[0];
         int index = 0;
@@ -16,18 +17,12 @@ public class CityUtils{
                 index = i;
             }
         }
-        return String.format("[%d] = %d", index, max.getPopulation());
+        System.out.println(MessageFormat.format("[{0}] = {1}", index, max.getPopulation()));
     }
 
     // comparator or lambda
     public static void sortByName(List<City> cities) {
         cities.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));
-//        cities.sort(new Comparator<City>() {
-//            @Override
-//            public int compare(City o1, City o2) {
-//                return o1.getName().compareToIgnoreCase(o2.getName());
-//            }
-//        });
     }
 
     public static void sortByDistrictAndName(List<City> cities) {
