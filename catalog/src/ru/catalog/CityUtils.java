@@ -5,6 +5,20 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class CityUtils{
+
+    public static String findCityWithMaxPopulation(List<City> cities) {
+        City[] array = cities.toArray(new City[0]);
+        City max = array[0];
+        int index = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (max.getPopulation() < array[i].getPopulation()) {
+                max = array[i];
+                index = i;
+            }
+        }
+        return String.format("[%d] = %d", index, max.getPopulation());
+    }
+
     // comparator or lambda
     public static void sortByName(List<City> cities) {
         cities.sort((o1, o2) -> o1.getName().compareToIgnoreCase(o2.getName()));

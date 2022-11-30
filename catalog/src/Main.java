@@ -11,5 +11,6 @@ public class Main {
         print(cities);
         sortByDistrictAndName(cities);
         print(cities);
+        System.out.println(findCityWithMaxPopulation(cities));
     }
 }
