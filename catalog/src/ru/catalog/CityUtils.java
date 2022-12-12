@@ -11,11 +11,13 @@ public class CityUtils{
         City[] arr = cities.toArray(new City[0]);
         int num = 0;
         for (int i = 0; i < arr.length-1; i++) {
-            if (arr[i].getRegion().equals(arr[i+1].getRegion())) {
-                num++;
+            // если мапа содержит ключ arr[i].getRegion()
+            // то достаём элемент с этим ключем и увеличиваем значение на 1
+            // else put(arr[i].getRegion(), 1)
+            if (region.containsKey(arr[i].getRegion())) {
+                region.put(arr[i].getRegion(), region.get(arr[i].getRegion()) + 1);
             } else {
-                region.put(arr[i].getRegion(), num + 1);
-                num = 0;
+                region.put(arr[i].getRegion(), 1);
             }
         }
         region.forEach((key, value) -> System.out.println(key + " - " + value));
